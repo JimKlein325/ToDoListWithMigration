@@ -18,6 +18,14 @@ namespace ToDoListWithMigrations.Models
         {
         }
 
+        public ToDoDbContext()
+        {
+
+            //(@"Server=(localdb)\\MSSQLLocalDB;Database=ToDoListWithMigrations;Trusted_Connection=True;");
+        //var optionsBuilder = new DbContextOptionsBuilder<ToDoDbContext
+        //        >();
+        //    optionsBuilder.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
+        }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
