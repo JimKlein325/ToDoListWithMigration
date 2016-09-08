@@ -16,10 +16,10 @@ namespace ToDoListWithMigrations.Models
 
         public DbSet<Item> Items { get; set; }
 
-        public ToDoDbContext(IConfigurationRoot config, DbContextOptions<ToDoDbContext> options)
+        public ToDoDbContext(DbContextOptions<ToDoDbContext> options)//(IConfigurationRoot config, DbContextOptions<ToDoDbContext> options)
             : base(options)
         {
-            _config = config;
+            //_config = config;
 
         }
 
@@ -34,7 +34,7 @@ namespace ToDoListWithMigrations.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(_config["Data:DefaultConnection:ConnectionString"]);
+            //optionsBuilder.UseSqlServer(_config["Data:DefaultConnection:ConnectionString"]);
         }
     }
 }

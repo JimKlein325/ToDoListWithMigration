@@ -19,7 +19,8 @@
     },
     "Microsoft.AspNetCore.Mvc.Abstractions": "1.0.0",
     "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.0.0",
-    "Microsoft.AspNetCore.Mvc": "1.0.0"
+    "Microsoft.AspNetCore.Mvc": "1.0.0",
+    "Microsoft.AspNetCore.Mvc.TagHelpers": "1.0.0"
   },
 
   "tools": {
