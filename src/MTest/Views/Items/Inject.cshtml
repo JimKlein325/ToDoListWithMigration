@@ -1,0 +1,29 @@
+﻿@using System.Threading.Tasks
+@using MTest.Services
+@model  MTest.ViewModels.ItemViewModel
+@inject ItemService Options
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Profile</title>
+</head>
+<body>
+    <div>
+        <h1>Update Profile</h1>
+        <br />
+        Gender: @Html.DropDownList("Categories",
+           Options.GetCategories().Select(g =>
+                new SelectListItem() { Text = g.Name, Value = g.CategoryId.ToString() }))
+
+
+        <br />
+        Gender: @Html.DropDownList("Items",
+           Options.GetItems().Select(g =>
+                new SelectListItem() { Text = g.Description, Value = g.ItemId.ToString() }))
+
+
+
+
+    </div>
+</body>
+</html>

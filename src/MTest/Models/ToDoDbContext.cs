@@ -10,7 +10,7 @@ namespace ToDoListWithMigrations.Models
 {
     public class ToDoDbContext : DbContext
     {
-        private IConfigurationRoot _config;
+        //private IConfigurationRoot _config;
 
         public DbSet<Category> Categories { get; set; } 
 
