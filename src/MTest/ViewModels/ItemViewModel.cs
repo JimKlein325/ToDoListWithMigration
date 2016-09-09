@@ -8,6 +8,6 @@ namespace MTest.ViewModels
     public class ItemViewModel
     {
         public string Description { get; set; }
-        public int CategoryID { get; set; }
+        public int CategoryId { get; set; }
     }
 }

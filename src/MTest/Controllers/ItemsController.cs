@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ToDoListWithMigrations.Models;
 using MTest.Services;
+using MTest.ViewModels;
+using AutoMapper;
 
 namespace ToDoList.Controllers
 {
@@ -31,6 +33,18 @@ namespace ToDoList.Controllers
         public IActionResult Inject()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Inject(ItemViewModel model)
+        {
+            var newItem = Mapper.Map<Item>(model);
+            //From class
+            //newItem.CategoryId = 1;
+            db.Items.Add(newItem);
+
+            db.SaveChanges();
+            return RedirectToAction("Inject");
+            //return View();
         }
     }
 }

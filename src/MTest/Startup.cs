@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using ToDoListWithMigrations.Models;
 using MTest.Services;
+using AutoMapper;
+using MTest.ViewModels;
 
 namespace MTest
 {
@@ -33,11 +35,20 @@ namespace MTest
                 .AddDbContext<ToDoDbContext>(options =>
                     options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
 
-            services.AddTransient<ItemService>();
+            services.AddScoped<ItemService>();
 
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            Mapper.Initialize(config =>
+            {
+                config.CreateMap<ItemViewModel, Item>();
+            });
+
+            #if DEBUG
+            app.UseDeveloperExceptionPage();
+            #endif
+
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
