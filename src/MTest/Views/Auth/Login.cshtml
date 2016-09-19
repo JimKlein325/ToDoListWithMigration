@@ -1,0 +1,26 @@
+﻿@model MTest.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h3>Login</h3>
+        <form method="post" novalidate>
+            <div asp-valildation-summary="ValidationSummary.ModelOnly"></div>
+            <div class="form-group">
+                <label asp-for="Username"></label>
+                <input asp-for="Username" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input type="password" asp-for="Password" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+

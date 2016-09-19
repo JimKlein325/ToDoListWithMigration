@@ -14,6 +14,8 @@ using ToDoListWithMigrations.Models;
 using MTest.Services;
 using AutoMapper;
 using MTest.ViewModels;
+using MTest.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace MTest
 {
@@ -30,7 +32,13 @@ namespace MTest
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
+            
+            services.AddIdentity<BTUser, IdentityRole>(config =>
+            {
+                //add config params here like password length
+            })
+            .AddEntityFrameworkStores<ToDoDbContext>();
+            
             services.AddEntityFramework()
                 .AddDbContext<ToDoDbContext>(options =>
                     options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
@@ -50,6 +58,8 @@ namespace MTest
             #endif
 
             app.UseStaticFiles();
+
+            app.UseIdentity();
 
             app.UseMvc(routes =>
             {

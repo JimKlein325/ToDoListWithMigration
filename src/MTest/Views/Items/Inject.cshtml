@@ -28,6 +28,7 @@
 
     </div>
     <form method="post">
+        
         <label asp-for="Description">Description</label>
         <input asp-for="Description"/>
         <select asp-for="CategoryId" asp-items="Options.GetCategories().Select(g =>

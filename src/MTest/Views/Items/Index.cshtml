@@ -10,11 +10,20 @@
 <body>-->
     <h2>To Do List</h2>
     <ul>
-        @foreach (var listItem in Model["items"])
+        @foreach (var listItem in Model)
         {
-            <p>@listItem.Description</p>
+            @listItem.Description <a asp-area="" asp-controller="Items" asp-action="Index" asp-route-id="@listItem.ItemId">Edit</a>
         }
     </ul>
+<form asp-controller="Items"
+      asp-action="Inject"
+      asp-route-id="7"
+      method="post">
+    <input type="hidden" name="ItemId" value="@Model[0].ItemId" />
+</form>
+
+
+
 <!--
 </body>
 </html>

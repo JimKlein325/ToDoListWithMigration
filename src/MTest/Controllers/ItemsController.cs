@@ -25,10 +25,10 @@ namespace ToDoList.Controllers
             Dictionary<string, object> d = new Dictionary<string, object>();
              
             var list = db.Items.ToList();
-            var cats = db.Categories.ToList();
-            d.Add("items", list);
-            d.Add("categories", cats);
-            return View(d);
+            //var cats = db.Categories.ToList();
+            //d.Add("items", list);
+            //d.Add("categories", cats);
+            return View(list);
         }
         public IActionResult Inject()
         {

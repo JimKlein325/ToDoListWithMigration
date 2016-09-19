@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using MTest.Models;
 
 namespace ToDoListWithMigrations.Models
 {
-    public class ToDoDbContext : DbContext
+    public class ToDoDbContext : IdentityDbContext<BTUser>
     {
         //private IConfigurationRoot _config;
 
